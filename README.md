@@ -1,4 +1,4 @@
-markdown
+![ClubMadeira.io Icon](https://madeira-widget-bucket.s3.eu-west-2.amazonaws.com/icon-192.png)
 # ClubMadeira.io Partner Integration Guide
 
 Welcome to the ClubMadeira.io Affiliate Program! This guide is designed to help you, our valued partner, seamlessly integrate our widgets into your website to sign up merchants and communities for our affiliate program, earning commissions on sales. Our widgets are lightweight, easy to implement, and can be hosted on simple static hosting platforms like Amazon S3. This README provides step-by-step instructions for webmasters to set up and deploy the provided HTML templates and scripts.
