@@ -62,9 +62,10 @@
      - These enable PWA installation prompts and offline capabilities.
 
   4. Static Content:
-     - The template includes a welcome section (<section class="welcome">) with a heading and placeholder text.
+     - The template includes a welcome section (<section class="welcome">) with a heading, image, and placeholder text.
      - Customize the heading (<h1>) and paragraphs (<p>) to reflect your site’s branding and messaging.
-     - Add additional sections or content (e.g., images, calls to action) as needed to enhance the home page.
+     - The image is styled in css/page.css to float left with text wrapping around it.
+     - Add additional sections or content (e.g., calls to action) as needed to enhance the home page.
 
   5. Footer Integration:
      - Add a <footer id="footer"></footer> element.
@@ -78,7 +79,7 @@
      - For protected pages (e.g., Dashboard), ensure your login page stores an `authToken` in `localStorage` upon successful login, and redirects use the `loginUrl` from `index.json`.
 
   7. Styling:
-     - Include your CSS file (e.g., <link rel="stylesheet" href="css/page.css">) to style the page.
+     - Styles are defined in css/page.css, including header, footer, and welcome section with image text wrapping.
      - The header widget applies its own styles but can be customized via CSS overrides (see widget documentation).
      - Ensure Font Awesome icons (loaded by the header widget) render correctly by avoiding conflicting CSS.
      - Style the static content (welcome section) to match your site’s design.
@@ -87,9 +88,9 @@
      - Test the page on a static hosting platform (e.g., Wix, S3, Netlify) to verify:
        - Header navigation works and displays the correct menu items (public and authenticated options).
        - `index.json` is fetched correctly (check console logs for errors).
-       - Static content (welcome section) displays correctly.
+       - Static content (welcome section with image) displays correctly with text wrapping.
        - PWA installation prompt appears on supported browsers.
-       - Footer content loads as expected.
+       - Footer content loads and aligns flush with the left edge of the screen.
      - Use browser developer tools to debug issues (e.g., 404 for `index.json` or `footer.html`).
      - Test navigation to protected pages (e.g., Dashboard) to ensure proper redirection to `loginUrl` if unauthenticated.
 
@@ -105,7 +106,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Page title, customizable for your site -->
     <title>Home</title>
-    <!-- Link to your custom CSS for styling the page -->
+    <!-- Link to custom CSS for styling the page -->
     <link rel="stylesheet" href="css/page.css">
 </head>
 
@@ -123,9 +124,10 @@
 
     <!-- Main content area for page-specific content -->
     <main>
-        <!-- Welcome section with introductory content -->
+        <!-- Welcome section with introductory content and image -->
         <section class="welcome">
             <h1>Welcome to ClubMadeira.io</h1>
+            <img src="https://madeira-widget-bucket.s3.eu-west-2.amazonaws.com/icon-192.png" alt="ClubMadeira Logo">
             <p>Lorem ipsum dolor sit amet. Aut quis laudantium aut nihil debitis ut sint galisum sed nemo tempore ea commodi molestias ut blanditiis quae? Aut autem error est fugit esse ut aliquam inventore aut voluptatum sapiente qui fuga eaque cum voluptatibus nesciunt. Aut labore fuga non consequatur galisum et consequuntur possimus ut dolor voluptatem quo modi iste.</p>
             <p>Et similique nihil sed galisum voluptate in nesciunt voluptatibus ea iste unde et maxime quisquam sed eius unde ut quas iure. Ab aperiam dicta At praesentium aspernatur sed quam sunt et explicabo molestiae a illum libero ea velit dolorum id doloribus dignissimos. Non explicabo autem ut nihil dolor qui labore voluptatem est fuga odit ut consectetur illo aut dicta sunt. Et facere cupiditate aut quasi sint eum quidem quidem ut nisi ullam.</p>
             <p>Aut aliquam odio id veniam voluptate sed velit voluptates. Eum corporis consequatur aut quis explicabo et cumque neque rem eveniet molestiae nam molestiae dolorem. Vel praesentium quidem ea voluptatem voluptas sit veniam rerum ad eligendi exercitationem et optio quam sed asperiores aperiam et fuga dolorum.</p>

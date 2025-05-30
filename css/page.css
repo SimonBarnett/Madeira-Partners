@@ -5,10 +5,15 @@
 }
 
 /* Basic styles */
+* {
+    box-sizing: border-box; /* Ensure padding/margins don’t inflate elements */
+}
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+    line-height: 1.5; /* Default line-height for consistency */
 }
 
 /* Header styles */
@@ -80,6 +85,10 @@ nav {
     align-items: center;
 }
 
+.menu-link:hover {
+    color: #66b3ff; /* Light blue on hover for consistency with selected state */
+}
+
 .menu-link:hover .menu-icon {
     transform: scale(1.1); /* 10% size increase on hover */
     transition: transform 0.2s ease-in-out;
@@ -102,6 +111,10 @@ nav {
     margin-left: 10px;
     margin-right: 10px; /* 10px margin to the right */
     color: white; /* White to match dark background */
+}
+
+.hamburger:hover {
+    color: #66b3ff; /* Match menu-link hover color */
 }
 
 /* Hint styling */
@@ -182,6 +195,49 @@ nav {
     }
 }
 
+/* Welcome section styles for image and text wrapping */
+.welcome {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.welcome h1 {
+    font-size: 2em;
+    margin-bottom: 1em;
+}
+
+.welcome img {
+    float: left;
+    width: 192px;
+    height: 192px;
+    margin: 0 20px 20px 0;
+    border-radius: 8px; /* Optional: softens image corners */
+}
+
+.welcome p {
+    line-height: 1.6;
+    margin-bottom: 1em;
+}
+
+/* Clearfix to prevent layout issues from floating image */
+.welcome::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Responsive adjustment for welcome section */
+@media (max-width: 600px) {
+    .welcome img {
+        float: none;
+        display: block;
+        margin: 0 auto 20px;
+        width: 150px;
+        height: 150px;
+    }
+}
+
 /* Additional styles */
 main {
     padding: 2rem;
@@ -192,9 +248,109 @@ main {
 footer {
     background-color: #333;
     color: white;
-    text-align: center;
-    padding: 0.5rem 1rem; /* Reduced vertical padding to 0.5rem, kept horizontal at 1rem */
+    text-align: left; /* Align content to the left edge */
+    padding: 0.25rem 0; /* Vertical padding only, no horizontal padding */
     position: fixed;
     bottom: 0;
     width: 100%;
+    font-size: 0.75rem; /* ~12px for text and icon sizing */
+    line-height: 1.2; /* Tight line-height to minimize height */
+}
+
+footer p {
+    margin: 0; /* Remove default paragraph margins */
+    display: flex;
+    align-items: center;
+    gap: 0.5rem; /* Space between links */
+    padding-left: 1rem; /* Optional: slight indent for content, adjust as needed */
+}
+
+footer a {
+    color: white; /* Ensure links are white */
+    text-decoration: none; /* Remove underline */
+}
+
+footer a:hover {
+    color: #66b3ff; /* Match header’s hover/selected color */
+}
+
+footer i, footer img.custom-icon {
+    width: 1em; /* ~12px based on footer’s font-size */
+    height: 1em;
+    vertical-align: middle; /* Align with text */
+    max-width: 1em; /* Prevent scaling beyond 12px */
+    max-height: 1em;
+    object-fit: contain; /* Ensure SVG fits within bounds */
+    display: inline-block; /* Ensure proper inline behavior */
+}
+
+/* Ensure no external styles affect images */
+footer img.custom-icon {
+    image-rendering: auto; /* Prevent pixelation */
+}
+
+/* Styles for provider icons in the API keys widget */
+#api-keys-wrapper .provider-icon {
+    font-size: 48px;
+    color: #007bff;
+    margin-right: 5px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+#api-keys-wrapper .provider-icon svg {
+    width: 1em;
+    height: 1em;
+    fill: currentColor;
+}
+
+/* Styles for provider radio icons */
+#settings-methods .provider-radio-icon {
+    font-size: 48px;
+    color: #6c757d;
+    cursor: pointer;
+    transition: color 0.2s ease;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+#settings-methods .provider-radio-icon svg {
+    width: 1em;
+    height: 1em;
+    fill: currentColor;
+}
+
+#settings-methods input[type="radio"]:checked + .provider-radio-icon {
+    color: #007bff;
+}
+
+#settings-methods .provider-radio-icon:hover {
+    color: #007bff;
+}
+
+/* Custom icon adjustments (if needed) */
+.custom-icon {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    vertical-align: middle;
+}
+
+.custom-icon svg {
+    width: 100%;
+    height: 100%;
+    fill: currentColor;
+}
+
+/* Ensure custom icons in footer are styled correctly */
+footer .custom-icon {
+    width: 1em;
+    height: 1em;
+    vertical-align: middle;
+}
+
+footer .custom-icon svg {
+    width: 100%;
+    height: 100%;
+    fill: currentColor;
 }
