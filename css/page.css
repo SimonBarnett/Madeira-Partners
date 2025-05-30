@@ -193,7 +193,7 @@ footer {
     background-color: #333;
     color: white;
     text-align: center;
-    padding: 1rem;
+    padding: 0.5rem 1rem; /* Reduced vertical padding to 0.5rem, kept horizontal at 1rem */
     position: fixed;
     bottom: 0;
     width: 100%;
