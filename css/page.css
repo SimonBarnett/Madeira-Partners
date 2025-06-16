@@ -166,7 +166,7 @@ nav {
         display: flex;
     }
     .menu-item {
-        margin: 10px 0;
+        margin: 5px 0; /* Reduced from 10px to 5px to decrease vertical gap by 50% */
     }
     .menu-link {
         justify-content: flex-end;
