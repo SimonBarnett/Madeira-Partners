@@ -1,5 +1,6 @@
 {
     "affiliateCode": "L7WDZWC8",
+    "sandbox": true,
     "loginUrl": "/login.html",
     "signupLinkUrl": "/signup.html",
     "dashboardLinkUrl":"/dashboard.html"
