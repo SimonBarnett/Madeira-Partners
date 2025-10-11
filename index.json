@@ -1,5 +1,6 @@
 {
-    "affiliateCode": "L7WDZWC8",
+    "affiliateCode": "MWRJCP92",
+    "sandbox": false,
     "loginUrl": "/login.html",
     "signupLinkUrl": "/signup.html",
     "dashboardLinkUrl":"/dashboard.html"

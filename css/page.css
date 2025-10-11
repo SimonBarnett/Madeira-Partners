@@ -3,34 +3,32 @@
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
 }
-
 /* Basic styles */
 * {
     box-sizing: border-box; /* Ensure padding/margins don’t inflate elements */
 }
-
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     line-height: 1.5; /* Default line-height for consistency */
 }
-
 /* Header styles */
 header {
     position: fixed;
     top: 0;
-    left: 0;
-    right: 0;
     z-index: 1000;
-    background-color: #333; /* Dark background */
+    background-color: #508738;
     color: white;
-    padding: 0.5rem 1rem; /* Minimal padding */
+    padding: 10px 20px;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    width: 100%;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    height: 60px; /* Fixed height for header */
 }
-
 /* Navigation container */
 nav {
     display: flex;
@@ -38,7 +36,6 @@ nav {
     align-items: center;
     width: 100%;
 }
-
 /* Logo styling */
 .logo {
     display: flex;
@@ -46,25 +43,21 @@ nav {
     font-size: 1.5rem;
     margin: 0;
 }
-
 .logo i {
     font-size: 2em;
     margin-right: 10px;
     color: white; /* White to match dark background */
 }
-
 .logo-text {
     display: inline-block;
     color: white; /* White to match dark background */
 }
-
 /* Menu group */
 .menu-group {
     display: flex;
     align-items: center;
     justify-content: flex-end; /* Right-align menu items */
 }
-
 /* Menu list */
 .menu-list {
     list-style: none;
@@ -72,37 +65,30 @@ nav {
     margin: 0;
     padding: 0;
 }
-
 /* Menu items */
 .menu-item {
     margin-left: 20px;
 }
-
 .menu-link {
     color: white; /* White to match dark background */
     text-decoration: none;
     display: flex;
     align-items: center;
 }
-
 .menu-link:hover {
-    color: #66b3ff; /* Light blue on hover for consistency with selected state */
+    color: #90ee90; /* Light green on hover for consistency with selected state */
 }
-
 .menu-link:hover .menu-icon {
     transform: scale(1.1); /* 10% size increase on hover */
     transition: transform 0.2s ease-in-out;
 }
-
 .menu-icon {
     font-size: 1.5em;
     margin-left: 10px;
 }
-
 .menu-text {
     display: none;
 }
-
 /* Hamburger */
 .hamburger {
     display: none;
@@ -112,11 +98,9 @@ nav {
     margin-right: 10px; /* 10px margin to the right */
     color: white; /* White to match dark background */
 }
-
 .hamburger:hover {
-    color: #66b3ff; /* Match menu-link hover color */
+    color: #90ee90; /* Match menu-link hover color */
 }
-
 /* Hint styling */
 .menu-hint {
     position: absolute;
@@ -130,26 +114,21 @@ nav {
     top: 100%; /* Position below the menu item */
     z-index: 1001; /* Above other elements */
 }
-
 .menu-hint.visible {
     visibility: visible;
 }
-
 .menu-hint .click-icon {
     margin-right: 5px;
     order: -1;
     font-size: 1.2em; /* Adjust size if needed */
 }
-
 .menu-hint .menu-name {
     white-space: nowrap;
 }
-
 /* Styling for selected menu item */
 .menu-item.selected .menu-link {
-    color: #66b3ff; /* Quite a bit lighter than #007bff */
+    color: #90ee90; /* Light green */
 }
-
 /* Responsive design for smaller screens */
 @media (max-width: 768px) {
     .menu-list {
@@ -159,7 +138,7 @@ nav {
         top: 100%;
         right: 0;
         width: 200px;
-        background-color: #333;
+        background-color: #508738;
         padding-right: 10px; /* Ensures content is inset 10px from screen's right edge */
     }
     .menu-list.show {
@@ -188,25 +167,21 @@ nav {
         display: block;
     }
 }
-
 @media (min-width: 769px) {
     .menu-list {
         margin-right: 20px;
     }
 }
-
 /* Welcome section styles for image and text wrapping */
 .welcome {
     max-width: 800px;
     margin: 0 auto;
     padding: 20px;
 }
-
 .welcome h1 {
     font-size: 2em;
     margin-bottom: 1em;
 }
-
 .welcome img {
     float: left;
     width: 192px;
@@ -214,19 +189,16 @@ nav {
     margin: 0 20px 20px 0;
     border-radius: 8px; /* Optional: softens image corners */
 }
-
 .welcome p {
     line-height: 1.6;
     margin-bottom: 1em;
 }
-
 /* Clearfix to prevent layout issues from floating image */
 .welcome::after {
     content: "";
     display: table;
     clear: both;
 }
-
 /* Responsive adjustment for welcome section */
 @media (max-width: 600px) {
     .welcome img {
@@ -237,7 +209,6 @@ nav {
         height: 150px;
     }
 }
-
 /* Additional styles */
 main {
     padding: 2rem;
@@ -246,17 +217,19 @@ main {
 }
 
 footer {
-    background-color: #333;
+    background-color: #508738;
     color: white;
     text-align: left; /* Align content to the left edge */
-    padding: 0.25rem 0; /* Vertical padding only, no horizontal padding */
+    padding: 10px 20px;
     position: fixed;
     bottom: 0;
     width: 100%;
     font-size: 0.75rem; /* ~12px for text and icon sizing */
     line-height: 1.2; /* Tight line-height to minimize height */
+    font-family: Arial, sans-serif;
+    margin: 0;
+    overflow-x: auto;
 }
-
 footer p {
     margin: 0; /* Remove default paragraph margins */
     display: flex;
@@ -264,16 +237,13 @@ footer p {
     gap: 0.5rem; /* Space between links */
     padding-left: 1rem; /* Optional: slight indent for content, adjust as needed */
 }
-
 footer a {
     color: white; /* Ensure links are white */
     text-decoration: none; /* Remove underline */
 }
-
 footer a:hover {
-    color: #66b3ff; /* Match header’s hover/selected color */
+    color: #90ee90; /* Match header’s hover/selected color */
 }
-
 footer i, footer img.custom-icon {
     width: 1em; /* ~12px based on footer’s font-size */
     height: 1em;
@@ -283,10 +253,15 @@ footer i, footer img.custom-icon {
     object-fit: contain; /* Ensure SVG fits within bounds */
     display: inline-block; /* Ensure proper inline behavior */
 }
-
 /* Ensure no external styles affect images */
 footer img.custom-icon {
     image-rendering: auto; /* Prevent pixelation */
+}
+footer * {
+    white-space: nowrap !important;
+    word-break: keep-all !important;
+    overflow-wrap: normal !important;
+    hyphens: none !important;
 }
 
 /* Styles for provider icons in the API keys widget */
@@ -297,13 +272,11 @@ footer img.custom-icon {
     display: inline-block;
     vertical-align: middle;
 }
-
 #api-keys-wrapper .provider-icon svg {
     width: 1em;
     height: 1em;
     fill: currentColor;
 }
-
 /* Styles for provider radio icons */
 #settings-methods .provider-radio-icon {
     font-size: 48px;
@@ -313,21 +286,17 @@ footer img.custom-icon {
     display: inline-block;
     vertical-align: middle;
 }
-
 #settings-methods .provider-radio-icon svg {
     width: 1em;
     height: 1em;
     fill: currentColor;
 }
-
 #settings-methods input[type="radio"]:checked + .provider-radio-icon {
     color: #007bff;
 }
-
 #settings-methods .provider-radio-icon:hover {
     color: #007bff;
 }
-
 /* Custom icon adjustments (if needed) */
 .custom-icon {
     display: inline-block;
@@ -335,22 +304,41 @@ footer img.custom-icon {
     height: 1em;
     vertical-align: middle;
 }
-
 .custom-icon svg {
     width: 100%;
     height: 100%;
     fill: currentColor;
 }
-
 /* Ensure custom icons in footer are styled correctly */
 footer .custom-icon {
     width: 1em;
     height: 1em;
     vertical-align: middle;
 }
-
 footer .custom-icon svg {
     width: 100%;
     height: 100%;
     fill: currentColor;
+}
+
+/* Index button styles */
+.index_button .icon {
+    font-size: 100px;
+    transition: transform 0.3s ease, color 0.3s ease;
+    color: #508738;
+    display: block;
+    margin: 0 auto;
+}
+.index_button:hover .icon {
+    transform: scale(1.1);
+    color: #90ee90;
+}
+.index_button {
+    text-decoration: none;                    
+    transition: color 0.3s ease;
+    color: #508738;
+    display: block;
+}
+.index_button:hover {
+    color: #90ee90;
 }
