@@ -1,204 +1,123 @@
+/*
+================================================================================
+page.css — PARTNER BRANDING FILE (GREEN THEME)
+================================================================================
+
+PURPOSE:
+This file now controls **only** the visual branding of the header and selected states.
+The header-widget.js owns all layout, positioning, responsive behaviour, 
+hamburger menu, mobile dropdown, icon sizing, hover effects, and tooltips.
+
+WHAT YOU CAN CHANGE TO STYLE THE HEADER:
+────────────────────────────────────────────────────────
+1. header { 
+     background-color: #508738;    ← Your brand green colour 
+     color: white;                 ← Text + icon colour 
+     padding: 3px 3px;            ← Adjust vertical/horizontal padding 
+   }
+
+2. .menu-item.selected .menu-link {
+     background-color: rgba(255,255,255,0.18);   Subtle highlight on selected row 
+     font-weight: 600;
+   }
+
+3. .menu-item.selected .menu-icon {
+     color: #fc0404;   ← Your chosen colour for the SELECTED icon only 
+   }
+
+4. .index_button and .index_button:hover
+     → Controls the colour of the big "Log in" and "Book Training" buttons on the homepage.
+
+Everything else (layout, icons, tooltips, responsive hamburger, mute button, etc.) 
+is 100% owned by header-widget.js and will never fight your CSS.
+
+DO NOT add rules for:
+- .menu-list, .menu-link, .hamburger, .menu-icon, .menu-text, nav, .logo, 
+  .menu-group, .menu-hint, or any media queries targeting the header/menu.
+
+These are now fully controlled by the widget.
+================================================================================
+*/
+
 /* Define spin animation for overlay */
 @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
 }
+
 /* Basic styles */
 * {
-    box-sizing: border-box; /* Ensure padding/margins don’t inflate elements */
+    box-sizing: border-box;
 }
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
-    padding: 0;
-    line-height: 1.5; /* Default line-height for consistency */
+    padding: 2px;
+    line-height: 1.5;
 }
-/* Header styles */
+
+/* 
+ * PARTNER HEADER CONTROL — ONLY SECTION YOU NEED TO EDIT FOR THE HEADER
+ */
 header {
-    position: fixed;
-    top: 0;
-    z-index: 1000;
-    background-color: #508738;
-    color: white;
-    padding: 10px 20px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    font-family: Arial, sans-serif;
-    margin: 0;
-    height: 60px; /* Fixed height for header */
-}
-/* Navigation container */
-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-}
-/* Logo styling */
-.logo {
-    display: flex;
-    align-items: center;
-    font-size: 1.5rem;
+    background-color: #508738;   /* ← Your brand green */
+    color: white;                /* ← White text & icons */
+    padding: 3px 3px;
     margin: 0;
 }
-.logo i {
-    font-size: 2em;
-    margin-right: 10px;
-    color: white; /* White to match dark background */
-}
-.logo-text {
-    display: inline-block;
-    color: white; /* White to match dark background */
-}
-/* Menu group */
-.menu-group {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end; /* Right-align menu items */
-}
-/* Menu list */
-.menu-list {
-    list-style: none;
-    display: flex;
-    margin: 0;
-    padding: 0;
-}
-/* Menu items */
-.menu-item {
-    margin-left: 20px;
-}
-.menu-link {
-    color: white; /* White to match dark background */
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-}
-.menu-link:hover {
-    color: #90ee90; /* Light green on hover for consistency with selected state */
-}
-.menu-link:hover .menu-icon {
-    transform: scale(1.1); /* 10% size increase on hover */
-    transition: transform 0.2s ease-in-out;
-}
-.menu-icon {
-    font-size: 1.5em;
-    margin-left: 10px;
-}
-.menu-text {
-    display: none;
-}
-/* Hamburger */
-.hamburger {
-    display: none;
-    font-size: 2em;
-    cursor: pointer;
-    margin-left: 10px;
-    margin-right: 10px; /* 10px margin to the right */
-    color: white; /* White to match dark background */
-}
-.hamburger:hover {
-    color: #90ee90; /* Match menu-link hover color */
-}
-/* Hint styling */
-.menu-hint {
-    position: absolute;
-    display: flex;
-    align-items: center;
-    background-color: rgba(0, 0, 0, 0.8);
-    color: white;
-    padding: 5px 10px;
-    border-radius: 3px;
-    visibility: hidden;
-    top: 100%; /* Position below the menu item */
-    z-index: 1001; /* Above other elements */
-}
-.menu-hint.visible {
-    visibility: visible;
-}
-.menu-hint .click-icon {
-    margin-right: 5px;
-    order: -1;
-    font-size: 1.2em; /* Adjust size if needed */
-}
-.menu-hint .menu-name {
-    white-space: nowrap;
-}
-/* Styling for selected menu item */
+
+/* Selected menu item background (subtle highlight) */
 .menu-item.selected .menu-link {
-    color: #90ee90; /* Light green */
+    background-color: rgba(255,255,255,0.18);
+    font-weight: 600;
 }
-/* Responsive design for smaller screens */
-@media (max-width: 768px) {
-    .menu-list {
-        display: none;
-        flex-direction: column;
-        position: absolute;
-        top: 100%;
-        right: 0;
-        width: 200px;
-        background-color: #508738;
-        padding-right: 10px; /* Ensures content is inset 10px from screen's right edge */
-    }
-    .menu-list.show {
-        display: flex;
-    }
-    .menu-item {
-        margin: 5px 0; /* Reduced from 10px to 5px to decrease vertical gap by 50% */
-    }
-    .menu-link {
-        justify-content: flex-end;
-        width: 100%;
-        color: white; /* White for visibility on dark background */
-        padding: 10px; /* Updated for larger touch area */
-    }
-    .menu-text {
-        display: inline;
-        color: white; /* White for visibility */
-        font-size: 1.25em; /* Increased by 0.25em for fat fingers */
-    }
-    .menu-icon {
-        font-size: 1.75em; /* Increased by 0.25em from 1.5em for fat fingers */
-        margin-left: 10px;
-        margin-right: 10px; /* Added to create a 10px gap from the right edge */
-    }
-    .hamburger {
-        display: block;
-    }
+
+/* Selected menu item ICON colour — this is where you set your "selected colour" */
+.menu-item.selected .menu-icon {
+    color: #fc0404;   /* ← Change this to your desired selected icon colour */
 }
-@media (min-width: 769px) {
-    .menu-list {
-        margin-right: 20px;
-    }
-}
+
+/* 
+ * REMOVED: All old header/nav/menu/hamburger/.menu-* rules and media queries
+ * Reason: header-widget.js now fully owns fixed positioning, layout, 
+ * responsive hamburger, mobile menu, icon behaviour, and hover states.
+ * 
+ * Adding rules for these classes will cause conflicts and is no longer needed.
+ */
+
 /* Welcome section styles for image and text wrapping */
 .welcome {
     max-width: 800px;
     margin: 0 auto;
-    padding: 20px;
+    padding: 0px;
 }
+
 .welcome h1 {
     font-size: 2em;
     margin-bottom: 1em;
 }
+
 .welcome img {
     float: left;
     width: 192px;
     height: 192px;
     margin: 0 20px 20px 0;
-    border-radius: 8px; /* Optional: softens image corners */
+    border-radius: 8px;
 }
+
 .welcome p {
     line-height: 1.6;
     margin-bottom: 1em;
 }
+
 /* Clearfix to prevent layout issues from floating image */
 .welcome::after {
     content: "";
     display: table;
     clear: both;
 }
+
 /* Responsive adjustment for welcome section */
 @media (max-width: 600px) {
     .welcome img {
@@ -209,54 +128,61 @@ nav {
         height: 150px;
     }
 }
+
 /* Additional styles */
 main {
-    padding: 2rem;
-    padding-bottom: 100px; /* Ensures content isn’t hidden by the fixed footer */
-    margin-top: 60px; /* Keeps space for the fixed header */
+    padding: 0;    
+    padding-bottom: 100px;
+    margin-top: 70px;
 }
 
+/* Footer styles (green to match partner branding) */
 footer {
     background-color: #508738;
     color: white;
-    text-align: left; /* Align content to the left edge */
+    text-align: left;
     padding: 10px 20px;
     position: fixed;
     bottom: 0;
-    width: 100%;
-    font-size: 0.75rem; /* ~12px for text and icon sizing */
-    line-height: 1.2; /* Tight line-height to minimize height */
+    width: 100vw;
+    font-size: 0.75rem;
+    line-height: 1.2;
     font-family: Arial, sans-serif;
     margin: 0;
     overflow-x: auto;
 }
+
 footer p {
-    margin: 0; /* Remove default paragraph margins */
+    margin: 0;
     display: flex;
     align-items: center;
-    gap: 0.5rem; /* Space between links */
-    padding-left: 1rem; /* Optional: slight indent for content, adjust as needed */
+    gap: 0.5rem;
+    padding-left: 1rem;
 }
+
 footer a {
-    color: white; /* Ensure links are white */
-    text-decoration: none; /* Remove underline */
+    color: white;
+    text-decoration: none;
 }
+
 footer a:hover {
-    color: #90ee90; /* Match header’s hover/selected color */
+    color: #90ee90;
 }
+
 footer i, footer img.custom-icon {
-    width: 1em; /* ~12px based on footer’s font-size */
+    width: 1em;
     height: 1em;
-    vertical-align: middle; /* Align with text */
-    max-width: 1em; /* Prevent scaling beyond 12px */
+    vertical-align: middle;
+    max-width: 1em;
     max-height: 1em;
-    object-fit: contain; /* Ensure SVG fits within bounds */
-    display: inline-block; /* Ensure proper inline behavior */
+    object-fit: contain;
+    display: inline-block;
 }
-/* Ensure no external styles affect images */
+
 footer img.custom-icon {
-    image-rendering: auto; /* Prevent pixelation */
+    image-rendering: auto;
 }
+
 footer * {
     white-space: nowrap !important;
     word-break: keep-all !important;
@@ -267,16 +193,18 @@ footer * {
 /* Styles for provider icons in the API keys widget */
 #api-keys-wrapper .provider-icon {
     font-size: 48px;
-    color: #007bff;
+    color: #508738;
     margin-right: 5px;
     display: inline-block;
     vertical-align: middle;
 }
+
 #api-keys-wrapper .provider-icon svg {
     width: 1em;
     height: 1em;
     fill: currentColor;
 }
+
 /* Styles for provider radio icons */
 #settings-methods .provider-radio-icon {
     font-size: 48px;
@@ -286,42 +214,48 @@ footer * {
     display: inline-block;
     vertical-align: middle;
 }
+
 #settings-methods .provider-radio-icon svg {
     width: 1em;
     height: 1em;
     fill: currentColor;
 }
+
 #settings-methods input[type="radio"]:checked + .provider-radio-icon {
-    color: #007bff;
+    color: #508738;
 }
+
 #settings-methods .provider-radio-icon:hover {
-    color: #007bff;
+    color: #508738;
 }
-/* Custom icon adjustments (if needed) */
+
+/* Custom icon adjustments */
 .custom-icon {
     display: inline-block;
     width: 1em;
     height: 1em;
     vertical-align: middle;
 }
+
 .custom-icon svg {
     width: 100%;
     height: 100%;
     fill: currentColor;
 }
-/* Ensure custom icons in footer are styled correctly */
+
 footer .custom-icon {
     width: 1em;
     height: 1em;
     vertical-align: middle;
 }
+
 footer .custom-icon svg {
     width: 100%;
     height: 100%;
     fill: currentColor;
 }
 
-/* Index button styles */
+/* Index button styles — green colour and hover effects for Log in / Book Training */
 .index_button .icon {
     font-size: 100px;
     transition: transform 0.3s ease, color 0.3s ease;
@@ -329,16 +263,19 @@ footer .custom-icon svg {
     display: block;
     margin: 0 auto;
 }
+
 .index_button:hover .icon {
     transform: scale(1.1);
     color: #90ee90;
 }
+
 .index_button {
     text-decoration: none;                    
     transition: color 0.3s ease;
     color: #508738;
     display: block;
 }
+
 .index_button:hover {
     color: #90ee90;
 }
