@@ -20,82 +20,32 @@
   SOFTWARE.
 
   Usage Instructions for Partners:
-  This HTML template demonstrates how to integrate the header widget for navigation, static content for a public home page, and a dynamic footer. Follow these steps to adapt this template for your website:
+  This is the authenticated Embed Code / catalog preview page (menu-config.json →
+  Embed Code → /catalog.html, roles community). It is not the public home page.
 
-  1. Header Widget Integration:
-     - Add a <header> element with attributes:
-       - `data-header-widget`: Activates the navigation widget.
-       - `data-page-name`: Set to the page's display name (e.g., "Welcome") shown in the header.
-       - `data-requireToken`: Set to "true" for pages requiring user authentication, or "false" for public pages (e.g., this home page uses "false").
-       - `data-icon`: Optional Font Awesome icon class (e.g., "fas fa-cog") for a custom logo icon; defaults to the page’s menu icon or "fas fa-home".
-     - Include the script: <script src="https://madeira-widget-bucket.s3.eu-west-2.amazonaws.com/header-widget.js"></script>
-       - This loads the widget, which manages navigation, authentication, and PWA features.
+  1. Header Widget:
+     - <header data-header-widget data-page-name="Catalog" data-requireToken="true">
+     - data-requireToken must be "true". Unauthenticated visitors are redirected
+       to loginUrl from index.json.
+     - Script: https://madeira-widget-bucket.s3.eu-west-2.amazonaws.com/header-widget.js
 
-  2. Configuration File (index.json):
-     - Host a file named `index.json` at your site’s root (e.g., https://your-site.com/index.json) with:
-       {
-         "loginUrl": "/your-login-page.html",
-         "affiliateCode": "YOUR_AFFILIATE_CODE"
-       }
-       - `loginUrl`: The relative or absolute URL to your login page (e.g., "/login.html" or "https://your-site.com/login").
-       - `affiliateCode`: Your unique affiliate identifier (e.g., "PARTNER123"), appended to the Affiliate AI menu URL (e.g., "/category.html?affiliate=PARTNER123").
-     - Ensure the file is publicly accessible and correctly formatted to avoid fallback to defaults (`/login.html`, empty affiliate code).
-     - The `loginUrl` is used for redirects if authentication is required on other pages.
+  2. Catalog Preview Widget:
+     - Add <div id="catalog-preview-widget"></div>
+     - Script: https://madeira-widget-bucket.s3.eu-west-2.amazonaws.com/catalog-preview-widget.js
+     - The widget renders embed snippets for the signed-in community catalogue.
 
-  3. Progressive Web App (PWA) Support:
-     - Create a `/manifest.json` file referencing the provided icons:
-       - https://madeira-widget-bucket.s3.eu-west-2.amazonaws.com/icon-192.png
-       - https://madeira-widget-bucket.s3.eu-west-2.amazonaws.com/icon-512.png
-       Example manifest.json:
-       {
-         "name": "Your App Name",
-         "icons": [
-           { "src": "https://madeira-widget-bucket.s3.eu-west-2.amazonaws.com/icon-192.png", "sizes": "192x192", "type": "image/png" },
-           { "src": "https://madeira-widget-bucket.s3.eu-west-2.amazonaws.com/icon-512.png", "sizes": "512x512", "type": "image/png" }
-         ],
-         "start_url": "/index.html",
-         "display": "standalone",
-         "theme_color": "#000000",
-         "background_color": "#ffffff"
-       }
-     - Host a service worker file (`/sw.js`) for offline support. A basic example is available in the widget documentation.
-     - These enable PWA installation prompts and offline capabilities.
+  3. Configuration:
+     - index.json and menu-config.json already ship with this kit at the site root.
+     - Replace affiliateCode in index.json with your partner code. Do not create
+       new copies of files that already exist.
 
-  4. Static Content:
-     - The template includes a welcome section (<section class="welcome">) with a heading, role widget, and placeholder text.
-     - Customize the heading (<h1>) and paragraphs (<p>) to reflect your site’s branding and messaging.
-     - The role widget is styled in css/page.css to integrate with the section layout.
-     - Add additional sections or content (e.g., calls to action) as needed to enhance the home page.
+  4. Footer:
+     - <footer id="footer"></footer> plus the fetch('footer.html') script below.
 
-  5. Footer Integration:
-     - Add a <footer id="footer"></footer> element.
-     - Use the provided JavaScript to dynamically load `footer.html` content via fetch.
-     - Host a `footer.html` file at your site’s root with your footer content (e.g., contact info, links).
-     - Alternatively, replace the fetch with static footer content if preferred.
+  5. Authentication:
+     - The header widget checks authToken in localStorage. See README security notes.
 
-  6. Authentication:
-     - The header widget uses AWS Lambda for authentication, checking an `authToken` in `localStorage` for protected pages.
-     - This page uses `data-requireToken="false"`, making it publicly accessible without authentication.
-     - For protected pages (e.g., Dashboard), ensure your login page stores an `authToken` in `localStorage` upon successful login, and redirects use the `loginUrl` from `index.json`.
-
-  7. Styling:
-     - Styles are defined in css/page.css, including header, footer, and welcome section with role widget integration.
-     - The header widget applies its own styles but can be customized via CSS overrides (see widget documentation).
-     - Ensure Font Awesome icons (loaded by the header and role widgets) render correctly by avoiding conflicting CSS.
-     - Style the static content (welcome section) to match your site’s design.
-
-  8. Testing and Deployment:
-     - Test the page on a static hosting platform (e.g., Wix, S3, Netlify) to verify:
-       - Header navigation works and displays the correct menu items (public and authenticated options).
-       - `index.json` is fetched correctly (check console logs for errors).
-       - Role widget displays and cycles through roles (Community, Merchant, Partner, Admin) correctly.
-       - Static content (welcome section with role widget) displays correctly with proper layout.
-       - PWA installation prompt appears on supported browsers.
-       - Footer content loads and aligns flush with the left edge of the screen.
-     - Use browser developer tools to debug issues (e.g., 404 for `index.json`, `footer.html`, or widget scripts).
-     - Test navigation to protected pages (e.g., Dashboard) to ensure proper redirection to `loginUrl` if unauthenticated.
-
-  For support, refer to the widget documentation or contact the integration team.
+  For support, see README.md or email support@clubmadeira.io.
 -->
 
 <!DOCTYPE html>
