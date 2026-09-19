@@ -1,17 +1,37 @@
 // sw.js
-const CACHE_NAME = 'my-app-cache-v1';
+const CACHE_NAME = 'madeira-partners-cache-v2';
 const urlsToCache = [
     '/',
     '/index.html',
-    '/apikey.html',
-    '/category.html',
-    '/dashboard.html',
-    '/footer.html',
     '/login.html',
     '/signup.html',
+    '/dashboard.html',
+    '/apikey.html',
+    '/catalog.html',
+    '/category.html',
+    '/partner.html',
+    '/account.html',
+    '/delegate.html',
+    '/clubs.html',
+    '/madeira-clubs.html',
+    '/madeira-merchants.html',
+    '/madeira-partners.html',
+    '/madeira-vouchers.html',
+    '/parts.html',
+    '/extension.html',
+    '/set-token.html',
+    '/speech.html',
+    '/footer.html',
     '/css/page.css',
-    '/images/icon-192.png',
-    '/images/icon-512.png'
+    '/index.json',
+    '/menu-config.json',
+    '/manifest.json',
+    '/android-chrome-192x192.png',
+    '/android-chrome-512x512.png',
+    '/apple-touch-icon.png',
+    '/favicon-16x16.png',
+    '/favicon-32x32.png',
+    '/favicon.ico'
 ];
 
 // Enhanced logging function to send detailed logs to the client
