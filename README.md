@@ -17,6 +17,9 @@ Club Madeira is a weekends-mostly **affiliate club**: partners promote merchants
 commission comes from “buy from my club”. It is not a dump of catalogues without
 promotion.
 
+**Putting widgets on your own site** (catalogue snippet, CMS, CSS, menus, TTS):
+**[docs/PARTNER_EMBEDS.md](docs/PARTNER_EMBEDS.md)**.
+
 **API truth:** cite [SimonBarnett/AWS](https://github.com/SimonBarnett/AWS). Do
 not invent endpoints. Invite / metrics / onboarding / delegate are documented in
 [docs/REFERRALS_AND_INVITES.md](docs/REFERRALS_AND_INVITES.md).
@@ -208,6 +211,9 @@ fine for a low-maintenance static site.
 
 ## Widget script map
 
+Partner-facing install, CMS notes, CSS overrides, menus and TTS:
+**[docs/PARTNER_EMBEDS.md](docs/PARTNER_EMBEDS.md)**.
+
 All widget URLs use prefix
 `https://madeira-widget-bucket.s3.eu-west-2.amazonaws.com/` unless noted.
 
@@ -245,6 +251,8 @@ list only.
 
 ## Support
 
+- [docs/PARTNER_EMBEDS.md](docs/PARTNER_EMBEDS.md) to embed widgets on a partner
+  or club site (including `madeira-widget.js`).
 - [docs/REFERRALS_AND_INVITES.md](docs/REFERRALS_AND_INVITES.md) for invite vs
   affiliate vs delegate vs Awin.
 - [SimonBarnett/AWS](https://github.com/SimonBarnett/AWS) for API / RDS / Lambda.

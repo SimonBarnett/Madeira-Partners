@@ -5,6 +5,8 @@ treat them as one “referral” system. API behaviour lives in
 [SimonBarnett/AWS](https://github.com/SimonBarnett/AWS) — this kit does not
 invent extra endpoints.
 
+Embed / CMS / TTS install: [PARTNER_EMBEDS.md](PARTNER_EMBEDS.md).
+
 | Concern | What it is | What it is not | Source of truth |
 |---------|------------|----------------|-----------------|
 | `index.json` `affiliateCode` | Signup-widget **attribution** for merchant/community signups that happen on a partner site (also appended to Affiliate AI URLs such as `/category.html?affiliate=…`) | Not the invited-user tree. Not account handoff. Not an Awin publisher key. | This repo `index.json`; consumed by signup/login/header widgets |
